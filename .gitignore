@@ -10,6 +10,13 @@
 !.yarn/releases
 !.yarn/versions
 
+
+# Ignore build artifacts
+.next
+out
+node_modules
+.env
+
 # testing
 /coverage
 
