@@ -17,6 +17,14 @@ out
 node_modules
 .env
 
+# Next.js build folders
+.next
+out
+node_modules
+.env
+*.zip
+
+
 # testing
 /coverage
 
@@ -47,3 +55,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Next.js build folders
+.next
+out
+node_modules
+.env
+*.zip
