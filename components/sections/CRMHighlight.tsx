@@ -43,7 +43,7 @@ export default function CRMHighlight() {
   ];
 
   return (
-    <section id="crm-highlight" className="relative py-16 pb-0 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8">
+    <section id="crm-highlight" className="relative py-16 pb-0 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8" style={{scrollMarginTop: '80px'}}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">

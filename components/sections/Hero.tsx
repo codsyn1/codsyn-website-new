@@ -18,16 +18,16 @@ export default function Hero() {
   const { ref: buttonsRef, isVisible: buttonsVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const { ref: terminalRef, isVisible: terminalVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
-  // Page load animation with staged text reveal
+  // Page load animation with staged text reveal - optimized for mobile
   useEffect(() => {
     setIsPageLoaded(true);
     
-    // Staged text reveal for smoother experience
-    const stage1 = setTimeout(() => setTextRevealStage(1), 300);  // Pre-heading
-    const stage2 = setTimeout(() => setTextRevealStage(2), 600);  // Main heading
-    const stage3 = setTimeout(() => setTextRevealStage(3), 900);  // Subheading
-    const stage4 = setTimeout(() => setTextRevealStage(4), 1200); // Buttons
-    const stage5 = setTimeout(() => setTextRevealStage(5), 1500); // Terminal
+    // Reduced timeouts for faster mobile load
+    const stage1 = setTimeout(() => setTextRevealStage(1), 100);  // Pre-heading
+    const stage2 = setTimeout(() => setTextRevealStage(2), 200);  // Main heading
+    const stage3 = setTimeout(() => setTextRevealStage(3), 300);  // Subheading
+    const stage4 = setTimeout(() => setTextRevealStage(4), 400); // Buttons
+    const stage5 = setTimeout(() => setTextRevealStage(5), 500); // Terminal
     
     return () => {
       clearTimeout(stage1);
@@ -40,17 +40,13 @@ export default function Hero() {
 
   const terminalLines: { text: string; color: string; delay: number }[] = [
   { text: '$ npm run awesome-website', color: 'text-cyan-400', delay: 0 },
-  { text: '✓ Brewing coffee ☕', color: 'text-gray-400', delay: 800 },
-  { text: '✓ Installing happiness...', color: 'text-gray-400', delay: 1600 },
-  { text: '> sudo make me a sandwich', color: 'text-cyan-400', delay: 2400 },
-  { text: '✓ Done. Enjoy! 🥪', color: 'text-green-400', delay: 3200 },
-  { text: '> git commit -m "Added magic ✨"', color: 'text-cyan-400', delay: 4000 },
-  { text: '> console.log("Building fun... 😎")', color: 'text-purple-400', delay: 4800 },
-  { text: '> curl -X POST /api/creativity', color: 'text-cyan-400', delay: 5600 },
-  { text: '✓ Creativity level: 100% 🎨', color: 'text-yellow-400', delay: 6400 },
-  { text: '> sudo rm -rf /boring-websites', color: 'text-cyan-400', delay: 7200 },
-  { text: '✓ Deploying awesomeness...', color: 'text-gray-400', delay: 8000 },
-  { text: '✓ Website live! 🎉 Visit: https://codsyn.dev', color: 'text-green-400 font-semibold animate-pulse', delay: 8800 },
+  { text: '✓ Installing happiness...', color: 'text-gray-400', delay: 400 },
+  { text: '> sudo make me a sandwich', color: 'text-cyan-400', delay: 800 },
+  { text: '✓ Done. Enjoy! 🥪', color: 'text-green-400', delay: 1200 },
+  { text: '> console.log("Building fun... 😎")', color: 'text-purple-400', delay: 1600 },
+  { text: '> curl -X POST /api/creativity', color: 'text-cyan-400', delay: 2000 },
+  { text: '✓ Creativity level: 100% 🎨', color: 'text-yellow-400', delay: 2400 },
+  { text: '✓ Website live! 🎉 Visit: https://codsyn.com', color: 'text-green-400 font-semibold animate-pulse', delay: 2800 },
 ];
 
 
@@ -69,21 +65,21 @@ export default function Hero() {
         setCurrentLineIndex(lineIndex);
         setCurrentText('');
         
-        // Smooth human-like typing
+        // Faster typing for mobile performance
         let charIndex = 0;
         const typeChar = () => {
           if (charIndex <= line.text.length) {
             setCurrentText(line.text.slice(0, charIndex));
             charIndex++;
-            setTimeout(typeChar, 60 + Math.random() * 40); // 60-100ms for human-like speed
+            setTimeout(typeChar, 30 + Math.random() * 20); // Reduced to 30-50ms for faster typing
           } else {
             // Line complete, add to visible lines and move to next
             setVisibleLines(prev => [...prev, line]);
             setCurrentText('');
             lineIndex++;
             
-            // Small pause between lines (like human thinking)
-            setTimeout(processNextLine, 300);
+            // Reduced pause between lines
+            setTimeout(processNextLine, 150);
           }
         };
         
@@ -91,13 +87,13 @@ export default function Hero() {
       };
       
       processNextLine();
-    }, 500);
+    }, 200); // Reduced initial delay
     
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section className="relative min-h-screen rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden m-6 mt-0">
+    <section className="relative min-h-screen rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden m-6 mt-20" style={{scrollMarginTop: '80px'}}>
       {/* Background Image */}
       <div
         className="absolute inset-0 opacity-20"
@@ -146,12 +142,12 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div ref={buttonsRef} className={`flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 ${buttonsVisible || textRevealStage >= 4 ? 'scroll-visible' : 'scroll-hidden'}`}>
-            <button className={`px-6 sm:px-8 py-3 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-purple-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base md:text-lg ${textRevealStage >= 4 ? 'animate-bounce-in' : ''}`}>
+            <a href="#contact" className={`px-6 sm:px-8 py-3 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-purple-900 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base md:text-lg ${textRevealStage >= 4 ? 'animate-bounce-in' : ''} text-center`}>
               Start Your Project
-            </button>
-            <button className={`px-6 sm:px-8 py-3 sm:py-4 md:px-10 md:py-5 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-700 transition-all duration-200 border border-slate-600 transform hover:scale-105 text-sm sm:text-base md:text-lg ${textRevealStage >= 4 ? 'animate-bounce-in' : ''}`}>
+            </a>
+            <a href="#projects" className={`px-6 sm:px-8 py-3 sm:py-4 md:px-10 md:py-5 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-700 transition-all duration-200 border border-slate-600 transform hover:scale-105 text-sm sm:text-base md:text-lg ${textRevealStage >= 4 ? 'animate-bounce-in' : ''} text-center`}>
               View Our Work
-            </button>
+            </a>
           </div>
 
           {/* Dashboard Preview */}

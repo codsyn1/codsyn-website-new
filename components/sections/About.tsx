@@ -21,14 +21,14 @@ export default function About() {
   }, []);
 
   const stats = [
-    { number: '30+', label: 'Projects Delivered' },
-    { number: '20+', label: 'Happy Clients' },
+    { number: '50+', label: 'Projects Delivered' },
+    { number: '100+', label: 'Happy Clients' },
     { number: '3+', label: 'Years of Experience' },
     { number: '24/7', label: 'Support' }
   ];
 
   return (
-    <section id="about" className="relative py-10 bg-white dark:bg-background text-gray-900 dark:text-white overflow-hidden -mt-6">
+    <section id="about" className="relative py-10 bg-white dark:bg-background text-gray-900 dark:text-white overflow-hidden -mt-2" style={{scrollMarginTop: '80px'}}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={headerRef} className={`text-center mb-8 ${headerVisible ? 'scroll-visible' : 'scroll-hidden-scale'}`}>

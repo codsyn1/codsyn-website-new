@@ -49,7 +49,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-16 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8">
+    <section id="contact" className="relative py-16 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8" style={{scrollMarginTop: '80px'}}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -88,10 +88,7 @@ export default function Contact() {
                 <span className="mr-2 sm:mr-3 text-lg sm:text-xl">📱</span>
                 <span className="text-sm sm:text-base">+92 321 5971854</span>
               </div>
-              <div className="flex items-center text-gray-700 dark:text-gray-300">
-                <span className="mr-2 sm:mr-3 text-lg sm:text-xl">📍</span>
-                <span className="text-sm sm:text-base">Islamabad, Pakistan</span>
-              </div>
+              
             </div>
 
             {/* Why Work With Us */}

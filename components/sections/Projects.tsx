@@ -13,7 +13,7 @@ export default function Projects() {
       title: 'Minibites - Restaurant & Food Delivery',
       description: 'Comprehensive restaurant management and food delivery application featuring real-time order tracking, seamless payment integration, and intuitive user experience built with Flutter and Firebase backend.',
       image: '/minibite-01.jpeg',
-      tags: ['Flutter', 'Firebase', 'Dart', 'REST API'],
+      tags: ['Flutter', 'Firebase', , 'Android'],
       category: 'mobile',
       link: 'https://play.google.com/store/apps/details?id=com.minibites.app',
       slug: 'minibites-restaurant-food-delivery',
@@ -23,7 +23,7 @@ export default function Projects() {
       title: 'Xcode IDE Enhancement',
       description: 'Advanced Xcode plugin and development environment enhancement featuring intelligent code completion, real-time debugging tools, and streamlined workflow automation for iOS/macOS developers.',
       image: '/xcode01.jpeg',
-      tags: ['Swift', 'Xcode', 'iOS', 'macOS'],
+      tags: ['Flutter', 'Android', 'Firebase'],
       category: 'mobile',
       link: '#',
       slug: 'xcode-ide-enhancement',
@@ -37,6 +37,16 @@ export default function Projects() {
       category: 'web',
       link: 'https://digiexplain.com',
       slug: 'digiexplain-admin-system',
+      featured: true
+    },
+    {
+      title: 'TOSITSOLUTIONS Canada Project',
+      description: 'Comprehensive business management solution for Canadian TOSITSOLUTIONS companies, featuring real-time tracking, automated reporting, and compliance management built with React and Node.js.',
+      image: '/TOSITSOLUTIONS.jpeg',
+      tags: ['React', 'Node.js', 'Firebase', 'Business Management'],
+      category: 'web',
+      link: '#',
+      slug: 'tositsolutions-canada',
       featured: true
     },
     {
@@ -143,7 +153,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative py-16 bg-purple-50/80 dark:bg-purple-950/20 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-2xl">
+    <section id="projects" className="relative py-16 bg-purple-50/80 dark:bg-purple-950/20 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-2xl" style={{scrollMarginTop: '80px'}}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -329,19 +339,19 @@ export default function Projects() {
               Let's collaborate and bring your ideas to life with our expertise and innovative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-inter font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform flex items-center justify-center gap-2 text-sm sm:text-base">
+              <a href="#contact" className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-inter font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform flex items-center justify-center gap-2 text-sm sm:text-base text-center">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 Start Your Project
-              </button>
-              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-inter font-semibold rounded-full hover:bg-gray-200 dark:hover:bg-slate-600 transition-all duration-300 border border-gray-300 dark:border-gray-600 hover:border-purple-400/40 hover:scale-105 transform flex items-center justify-center gap-2 text-sm sm:text-base">
+              </a>
+              <a href="#projects" className="px-6 sm:px-8 py-3 sm:py-4 bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-inter font-semibold rounded-full hover:bg-gray-200 dark:hover:bg-slate-600 transition-all duration-300 border border-gray-300 dark:border-gray-600 hover:border-purple-400/40 hover:scale-105 transform flex items-center justify-center gap-2 text-sm sm:text-base text-center">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
                 View All Projects
-              </button>
+              </a>
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function Services() {
         image: '/website-development-and-design-1.jpg'
       },
       {
-        title: 'MERN tack Development',
+        title: 'MERN Stack Development',
         description: 'Advanced mern stack solutions for modern web applications',
         icon: '🚀',
         features: ['Modern Stack', 'Scalable Architecture', 'Performance Optimization'],
@@ -88,6 +88,30 @@ export default function Services() {
         icon: '🎨',
         features: ['Material Design', 'Custom Animations', 'User Testing'],
         image: '/flutter-ui-ux.jpg'
+      },
+      {
+        title: 'React Native Development',
+        description: 'Cross-platform mobile apps built with React Native framework',
+        icon: '📱',
+        features: ['Cross-Platform', 'Native Performance', 'Hot Reload'],
+        image: '/react-native.webp'
+      },
+      {
+        title: 'React Native UI/UX',
+        description: 'Beautiful and intuitive user interfaces for React Native applications',
+        icon: '🎨',
+        features: ['Component Libraries', 'Custom Animations', 'User Testing'],
+        image: '/flutter-ui-ux.jpg'
+      }
+    ],
+    
+    devops: [
+      {
+        title: 'DevOps Solutions',
+        description: 'Complete DevOps services for streamlined development and deployment workflows',
+        icon: '⚙️',
+        features: ['CI/CD Pipelines', 'Container Orchestration', 'Cloud Infrastructure', 'Monitoring & Logging'],
+        image: '/devops.webp'
       }
     ],
     
@@ -130,6 +154,7 @@ export default function Services() {
     { id: 'development', label: 'Development', icon: '💻' },
     { id: 'flutter', label: 'Mobile & Flutter', icon: '📱' },
     { id: 'web_wordpress', label: 'Web & WordPress', icon: '🌐' },
+    { id: 'devops', label: 'DevOps', icon: '⚙️' },
     { id: 'marketing', label: 'Marketing & SEO', icon: '📈' },
     { id: 'ux_design', label: 'UX/UI Design', icon: '🎨' }
   ];
@@ -144,7 +169,7 @@ export default function Services() {
   const filteredServices = getFilteredServices();
 
   return (
-    <section id="services" className="relative py-16 bg-purple-50/80 dark:bg-purple-950/20 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-2xl">
+    <section id="services" className="relative py-16 bg-purple-50/80 dark:bg-purple-950/20 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-2xl" style={{scrollMarginTop: '80px'}}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">

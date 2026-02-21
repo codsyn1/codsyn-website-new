@@ -1,77 +1,169 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'services', 'crm-highlight', 'projects', 'team', 'testimonials', 'contact'];
+      const scrollPosition = window.scrollY + 80; // Add navbar height offset
+      
+      let maxOverlap = 0;
+      let activeSectionFound = '';
+      let bestMatchSection = '';
+      let bestMatchCenter = Infinity;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          const elementCenter = offsetTop + (offsetHeight / 2); // Center of section
+          const overlapStart = elementCenter - 50; // 50px before center
+          const overlapEnd = elementCenter + 50; // 50px after center
+          
+          // Check if scroll position is within this section's range
+          if (scrollPosition >= overlapStart && scrollPosition <= overlapEnd) {
+            const currentOverlap = overlapEnd - overlapStart;
+            
+            // Update if this section has more overlap than current max
+            if (currentOverlap > maxOverlap) {
+              maxOverlap = currentOverlap;
+              activeSectionFound = section;
+              bestMatchSection = section;
+              bestMatchCenter = elementCenter;
+            }
+            
+            // Update best match if exact center match
+            if (Math.abs(scrollPosition - elementCenter) < Math.abs(scrollPosition - bestMatchCenter)) {
+              bestMatchSection = section;
+            }
+          }
+        }
+      }
+      
+      setActiveSection(bestMatchSection);
+      console.log(`Active section: ${bestMatchSection}`); // Debug log
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <>
-      <nav className="relative py-4 px-4 xl:px-0 bg-white dark:bg-background shadow-md">
-      <div className="max-w-7xl w-full mx-auto">
-        <div className="flex justify-between items-center">
-          <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 group flex items-center mr-3" href="/">
-            <div className="flex items-center gap-0">
-              <img 
-                src="/white-logo.png" 
-                alt="Codsyn Logo" 
-                className="h-8 w-auto lg:h-12"
-              />
-              <img 
-                src="/white-text.png" 
-                alt="Codsyn" 
-                className="h-6 w-auto lg:h-9"
-              />
-            </div>
-          </a>
-          
-          <div className="hidden lg:block">
-            <nav aria-label="Main" className="relative flex justify-center">
-              <ul className="flex items-center gap-2">
-                <li>
-                  <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-white-800 hover:text-white-900 text-sm font-medium" href="/#home">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-white-800 hover:text-white-900 text-sm font-medium" href="/#about">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-white-800 hover:text-white-900 text-sm font-medium" href="/#services">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-white-800 hover:text-white-900 text-sm font-medium" href="/#projects">
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-white-800 hover:text-white-900 text-sm font-medium" href="/#contact">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          
-          <div className="flex space-x-3 items-center">
-            <a href="/become-partner" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 hidden md:flex items-center text-sm font-medium rounded-md whitespace-nowrap  text-white hover:bg-white/10 h-10 w-34 px-3">
-              Become a Partner
+      <nav className="fixed top-0 left-0 right-0 z-50 py-4 px-4 xl:px-0 bg-white/95 dark:bg-background/95 backdrop-blur-sm shadow-md">
+        <div className="max-w-7xl w-full mx-auto">
+          <div className="flex justify-between items-center">
+            <a className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 group flex items-center mr-3" href="/">
+              <div className="flex items-center gap-0">
+                <img 
+                  src="/white-logo.png" 
+                  alt="Codsyn Logo" 
+                  className="h-8 w-auto lg:h-12"
+                />
+                <img 
+                  src="/white-text.png" 
+                  alt="Codsyn" 
+                  className="h-6 w-auto lg:h-9"
+                />
+              </div>
             </a>
-            <button 
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="group/button flex items-center justify-center border transform transition-transform duration-50 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 bg-transparent border-transparent text-white-800 hover:bg-white-100 hover:border-white-100 h-10 w-10 lg:h-[34px] lg:w-[34px] lg:py-1.5 rounded-md text-sm leading-5 space-x-2 px-0 lg:hidden"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" d="M4.5 9h15m-15 6h15"></path>
-              </svg>
-            </button>
+            
+            <div className="hidden lg:block">
+              <nav aria-label="Main" className="relative flex justify-center">
+                <ul className="flex items-center gap-2">
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'about' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#about">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'services' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#services">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'crm-highlight' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#crm-highlight">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      CRM Highlight
+                    </a>
+                  </li>
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'projects' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#projects">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      Projects
+                    </a>
+                  </li>
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'team' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#team">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      Team
+                    </a>
+                  </li>
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'testimonials' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#testimonials">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      Testimonials
+                    </a>
+                  </li>
+                  <li>
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${
+                      activeSection === 'contact' 
+                        ? 'text-purple-600 dark:text-purple-400' 
+                        : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                    }`} style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}} href="/#contact">
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            
+            <div className="flex space-x-3 items-center">
+              <a href="/become-partner" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 hidden md:flex items-center text-sm font-medium rounded-md whitespace-nowrap  text-white hover:bg-white/10 h-10 w-34 px-3">
+                Become a Partner
+              </a>
+              <button 
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="group/button flex items-center justify-center border transform transition-transform duration-50 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 bg-transparent border-transparent text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 h-10 w-10 lg:h-8.5 lg:w-8.5 lg:py-1.5 rounded-md text-sm leading-5 space-x-2 px-0 lg:hidden"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" d="M4.5 9h15m-15 6h15"></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
     {/* Mobile Sidebar */}
     <div className={`fixed inset-0 z-50 lg:hidden ${isSidebarOpen ? 'block' : 'hidden'}`}>
@@ -113,19 +205,16 @@ export default function Navbar() {
             <ul className="space-y-2">
               <li>
                 <a 
-                  href="/#home" 
-                  onClick={() => setIsSidebarOpen(false)}
-                  className="block w-full text-left px-4 py-3 text-white-800 hover:bg-gray-100 rounded-md transition-colors font-medium"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a 
                   href="/#about" 
                   onClick={() => setIsSidebarOpen(false)}
-                  className="block w-full text-left px-4 py-3 text-white-800 hover:bg-gray-100 rounded-md transition-colors font-medium"
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'about' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
                 >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   About
                 </a>
               </li>
@@ -133,26 +222,89 @@ export default function Navbar() {
                 <a 
                   href="/#services" 
                   onClick={() => setIsSidebarOpen(false)}
-                  className="block w-full text-left px-4 py-3 text-white-800 hover:bg-gray-100 rounded-md transition-colors font-medium"
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'services' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
                 >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   Services
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/#crm-highlight" 
+                  onClick={() => setIsSidebarOpen(false)}
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'crm-highlight' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
+                >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                  CRM Highlight
                 </a>
               </li>
               <li>
                 <a 
                   href="/#projects" 
                   onClick={() => setIsSidebarOpen(false)}
-                  className="block w-full text-left px-4 py-3 text-white-800 hover:bg-gray-100 rounded-md transition-colors font-medium"
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'projects' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
                 >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   Projects
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/#team" 
+                  onClick={() => setIsSidebarOpen(false)}
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'team' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
+                >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                  Team
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/#testimonials" 
+                  onClick={() => setIsSidebarOpen(false)}
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'testimonials' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
+                >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                  Testimonials
                 </a>
               </li>
               <li>
                 <a 
                   href="/#contact" 
                   onClick={() => setIsSidebarOpen(false)}
-                  className="block w-full text-left px-4 py-3 text-white-800 hover:bg-gray-100 rounded-md transition-colors font-medium"
+                  className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${
+                    activeSection === 'contact' 
+                      ? 'text-purple-600 dark:text-purple-400' 
+                      : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
+                  }`}
+                  style={{fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500}}
                 >
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   Contact
                 </a>
               </li>

@@ -29,23 +29,23 @@ export default function Footer() {
               Professional web development services transforming ideas into digital reality with cutting-edge technology and innovative solutions.
             </p>
             <div className="flex space-x-3 sm:space-x-4">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-900/50 rounded-full flex items-center justify-center hover:bg-purple-800/50 transition-colors cursor-pointer">
+              <a href="https://www.facebook.com/share/1CJc84gDVF/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-900/50 rounded-full flex items-center justify-center hover:bg-purple-800/50 transition-colors cursor-pointer">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v3.23h-1.507c-1.265 0-1.503.621-1.503 1.503v2.09h3.032l-.392 3.47h-2.64V23.927c5.737-.9 10.125-5.864 10.125-11.854z"/>
                 </svg>
-              </div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-900/50 rounded-full flex items-center justify-center hover:bg-purple-800/50 transition-colors cursor-pointer">
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-900/50 rounded-full flex items-center justify-center hover:bg-purple-800/50 transition-colors cursor-pointer">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-purple-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
-              </div>
-              <div className="w-10 h-10 bg-purple-900/50 rounded-full flex items-center justify-center hover:bg-purple-800/50 transition-colors cursor-pointer">
+              </a>
+              <a href="https://www.linkedin.com/company/codsyn-smc-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-purple-900/50 rounded-full flex items-center justify-center hover:bg-purple-800/50 transition-colors cursor-pointer">
                 <svg className="w-5 h-5 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -99,14 +99,20 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-xs sm:text-sm">
-              &copy; 2026 Codsyn SMC PVT LTD. All rights reserved.
+              &copy; 2024 - 2026 Codsyn SMC PVT LTD. All rights reserved.
             </p>
+            
             <div className="flex space-x-4 sm:space-x-6 mt-3 md:mt-0">
-              <a href="#" className="text-gray-500 hover:text-purple-300 text-xs sm:text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-purple-300 text-xs sm:text-sm transition-colors">Terms of Service</a>
+              <a href="/privacy-policy" className="text-gray-500 hover:text-purple-300 text-xs sm:text-sm transition-colors">Privacy Policy</a>
               <a href="#contact" className="text-gray-500 hover:text-purple-300 text-xs sm:text-sm transition-colors">Contact Us</a>
             </div>
           </div>
+        </div>
+
+        <div className="text-center mt-8">
+          <p className="text-gray-500 text-xs sm:text-sm">
+            Designed and developed by <a href="#team" className="text-purple-400 hover:text-purple-300 transition-colors">Codsyn</a> 
+          </p>
         </div>
       </div>
     </footer>

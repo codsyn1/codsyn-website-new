@@ -7,7 +7,7 @@ export default function WhatsAppChat() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([
     { 
-      text: "Hi 👋 Welcome to Codsyn SMC Private Limited!<br><br>Thank you for contacting us through our website.<br><br>We provide the following services:<br><br>🔹 Web Development (Business Websites, E-commerce Stores, Custom Websites – Next.js, React, WordPress etc.)<br><br>🔹 Mobile App Development (Flutter & React Native – Android & iOS Apps)<br><br>🔹 Digital Marketing (SEO, Facebook Ads, Google Ads, Google Business Profile Optimization)<br><br>Kindly let us know which service you are interested in, so our team can guide you properly and share complete details.<br><br>We look forward to working with you 😊", 
+      text: "Hi 👋 Welcome to Codsyn SMC Private Limited!\n\nThank you for contacting us through our website.\n\nWe provide the following services:\n\n🔹 Web Development (Business Websites, E-commerce Stores, Custom Websites – Next.js, React, WordPress etc.)\n\n🔹 Mobile App Development (Flutter & React Native – Android & iOS Apps)\n\n🔹 Digital Marketing (SEO, Facebook Ads, Google Ads, Google Business Profile Optimization)\n\nKindly let us know which service you are interested in, so our team can guide you properly and share complete details.\n\nWe look forward to working with you 😊", 
       sent: false, 
       time: "14:41", 
       id: 1 

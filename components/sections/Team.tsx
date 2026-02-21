@@ -13,9 +13,9 @@ export default function Team() {
   };
   const team = [
     {
-      name: 'Jahangir',
+      name: 'Jehangir Ahmed',
       role: 'CEO & Founder',
-      image: '/jehangir.jpeg',
+      image: '/jehangir.png',
       bio: 'Visionary leader with 9+ years of experience in tech innovation and business strategy. Passionate about building scalable solutions that drive business growth and transform digital landscapes.',
       expertise: ['Business Strategy', 'Product Development', 'Team Leadership']
     },
@@ -29,21 +29,35 @@ export default function Team() {
     {
       name: 'Nadia Malik',
       role: 'Business Development Head',
-      image: 'girl-icon',
+      image: '/nadia.jpeg',
       bio: 'Strategic business development leader with expertise in market expansion and partnership building. Driving growth initiatives and fostering key client relationships to scale business operations effectively.',
       expertise: ['Business Development', 'Strategic Planning', 'Client Relations', 'Market Analysis']
     },
     {
       name: 'Muhammed Umer',
-      role: 'Social Media Department Head',
+      role: 'Digital Marketing Head',
       image: '/umer.jpeg',
       bio: 'Creative social media specialist with expertise in digital marketing and content strategy. Skilled in building brand awareness and driving engagement through data-driven campaigns and compelling storytelling.',
       expertise: ['SEO Services', 'Social Media Marketing', 'Content Strategy', 'Analytics']
+    },
+    {
+      name: 'Muhammad Sameer',
+      role: 'WordPress Developer',
+      image: '/sameer.jpeg',
+      bio: 'Expert WordPress developer specializing in custom themes, plugins, and scalable CMS solutions. Passionate about creating robust, user-friendly websites that drive business growth and enhance digital presence.',
+      expertise: ['WordPress Development', 'PHP', 'Custom Themes', 'Plugin Development']
+    },
+    {
+      name: 'Hira Arsalan',
+      role: 'Business Development Executive',
+      image: '/hira.jpg',
+      bio: 'Dynamic business development professional with expertise in client acquisition and relationship management. Focused on identifying growth opportunities and building strategic partnerships to expand market reach.',
+      expertise: ['Business Development', 'Client Relations', 'Market Research', 'Sales Strategy']
     }
   ];
 
   return (
-    <section id="team" className="relative py-16 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8">
+    <section id="team" className="relative py-16 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8" style={{scrollMarginTop: '80px'}}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -65,7 +79,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid with Flip Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
           {team.map((member, index) => { return ( <div key={index} className="relative w-full h-64 sm:h-72 md:h-80 lg:h-84 xl:h-96 perspective-1000">
               {/* Flip Card Container */}
               <div 
@@ -104,67 +118,21 @@ export default function Team() {
                       {/* Team Member Image */}
                       <div className="text-center mb-4">
                         <div className="relative w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 mx-auto rounded-full overflow-hidden mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                          {member.image === 'girl-icon' ? (
-                            <div className="w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black flex items-center justify-center relative">
-                              {/* Professional SVG avatar design */}
-                              <svg className="w-12 h-12 sm:w-16 sm:h-16" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* Hair */}
-                                <path d="M50 15C35 15 25 25 25 35C25 40 30 45 35 45C40 45 45 40 45 35C45 25 55 15 50 15Z" fill="#1a1a1a"/>
-                                
-                                {/* Face */}
-                                <circle cx="50" cy="50" r="18" fill="#f4c5b0"/>
-                                
-                                {/* Hair sides */}
-                                <path d="M32 35C32 35 30 40 30 45C30 50 32 55 35 55C38 55 40 50 40 50C40 50 38 45 35 45C35 40 32 35 32 35Z" fill="#1a1a1a"/>
-                                <path d="M68 35C68 35 70 40 70 45C70 50 68 55 65 55C62 55 60 50 60 50C60 50 62 45 65 45C65 40 68 35 68 35Z" fill="#1a1a1a"/>
-                                
-                                {/* Neck */}
-                                <rect x="45" y="65" width="10" height="8" fill="#f4c5b0"/>
-                                
-                                {/* Shoulders */}
-                                <ellipse cx="35" cy="75" rx="15" ry="8" fill="#2d3748"/>
-                                <ellipse cx="65" cy="75" rx="15" ry="8" fill="#2d3748"/>
-                                
-                                {/* Clothes */}
-                                <path d="M25 80C25 85 35 90 50 90C65 90 75 85 75 80C75 75 65 70 50 70C35 70 25 75 25 80Z" fill="#4a5568"/>
-                                
-                                {/* Hair details */}
-                                <path d="M50 20C45 20 40 22 40 25C40 28 45 30 50 30C55 30 60 28 60 25C60 22 55 20 50 20Z" fill="#2d3748"/>
-                                
-                                {/* Eyes */}
-                                <circle cx="44" cy="48" r="2" fill="#1a1a1a"/>
-                                <circle cx="56" cy="48" r="2" fill="#1a1a1a"/>
-                                
-                                {/* Mouth */}
-                                <path d="M50 55C48 55 47 56 47 57C47 58 48 59 50 59C52 59 53 58 53 57C53 56 52 55 50 55Z" fill="#1a1a1a"/>
-                                
-                                {/* Decorative elements */}
-                                <circle cx="30" cy="30" r="2" fill="#4a5568" opacity="0.5"/>
-                                <circle cx="70" cy="30" r="2" fill="#4a5568" opacity="0.5"/>
-                                <circle cx="35" cy="70" r="1.5" fill="#4a5568" opacity="0.3"/>
-                                <circle cx="65" cy="70" r="1.5" fill="#4a5568" opacity="0.3"/>
-                              </svg>
-                            </div>
-                          ) : (
-                            <img 
-                              src={member.image}
-                              alt={member.name}
-                              className={member.name === 'Aftab Asif' 
-                                ? "w-full h-full object-cover object-top" 
-                                : member.name === 'Jahangir'
-                                ? "w-full h-full object-cover object-center scale-110"
-                                : member.name === 'Muhammed Umer'
-                                ? "w-full h-full object-cover object-top scale-110"
-                                : "w-full h-full object-cover"
-                              }
-                            />
-                          )}
-                          {/* CEO Badge for Jahangir */}
-                          {member.role === 'CEO & Founder' && (
-                            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
-                              CEO
-                            </div>
-                          )}
+                          <img 
+                            src={member.image}
+                            alt={member.name}
+                            className={member.name === 'Aftab Asif' 
+                              ? "w-full h-full object-cover object-top" 
+                              : member.name === 'Jehangir Ahmed'
+                              ? "w-full h-full object-cover object-center scale-110"
+                              : member.name === 'Muhammed Umer'
+                              ? "w-full h-full object-cover object-top scale-110"
+                              : member.name === 'Muhammad Sameer'
+                              ? "w-full h-full object-cover object-top scale-100"
+                              : "w-full h-full object-cover"
+                            }
+                          />
+                          
                           {/* Decorative ring */}
                           <div className="absolute inset-0 rounded-full border-4 border-purple-400/30 group-hover:border-purple-400/60 transition-all duration-500"></div>
                         </div>
