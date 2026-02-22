@@ -39,20 +39,6 @@ export default function Team() {
       image: '/umer.jpeg',
       bio: 'Creative social media specialist with expertise in digital marketing and content strategy. Skilled in building brand awareness and driving engagement through data-driven campaigns and compelling storytelling.',
       expertise: ['SEO Services', 'Social Media Marketing', 'Content Strategy', 'Analytics']
-    },
-    {
-      name: 'Muhammad Sameer',
-      role: 'WordPress Developer',
-      image: '/sameer.jpeg',
-      bio: 'Expert WordPress developer specializing in custom themes, plugins, and scalable CMS solutions. Passionate about creating robust, user-friendly websites that drive business growth and enhance digital presence.',
-      expertise: ['WordPress Development', 'PHP', 'Custom Themes', 'Plugin Development']
-    },
-    {
-      name: 'Hira Arsalan',
-      role: 'Business Development Executive',
-      image: '/hira.jpg',
-      bio: 'Dynamic business development professional with expertise in client acquisition and relationship management. Focused on identifying growth opportunities and building strategic partnerships to expand market reach.',
-      expertise: ['Business Development', 'Client Relations', 'Market Research', 'Sales Strategy']
     }
   ];
 
@@ -79,7 +65,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid with Flip Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {team.map((member, index) => { return ( <div key={index} className="relative w-full h-64 sm:h-72 md:h-80 lg:h-84 xl:h-96 perspective-1000">
               {/* Flip Card Container */}
               <div 
@@ -126,7 +112,7 @@ export default function Team() {
                               : member.name === 'Jehangir Ahmed'
                               ? "w-full h-full object-cover object-center scale-110"
                               : member.name === 'Muhammed Umer'
-                              ? "w-full h-full object-cover object-top scale-110"
+                              ? "w-full h-full object-cover object-top scale-130"
                               : member.name === 'Muhammad Sameer'
                               ? "w-full h-full object-cover object-top scale-100"
                               : "w-full h-full object-cover"
