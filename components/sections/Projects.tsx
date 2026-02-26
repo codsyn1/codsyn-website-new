@@ -90,6 +90,16 @@ export default function Projects() {
       featured: true
     },
     {
+      title: 'Kirkuk Caffetorino Restaurant',
+      description: 'Elegant restaurant website built with WordPress featuring beautiful design, menu management, reservation system, and optimized user experience for dining establishments.',
+      image: '/rostorante.png',
+      tags: ['WordPress', 'Restaurant', 'Menu Management', 'Reservation System'],
+      category: 'web',
+      link: 'https://www.kirkukkaffetorino.com/',
+      slug: 'kirkuk-caffetorino-restaurant',
+      featured: true
+    },
+    {
       title: 'Restaurant POS System',
       description: 'Complete POS software for restaurants managing inventory, stocks, orders, bills, invoice printing, dining, and delivery operations with comprehensive business management features.',
       image: '/pos01.png',
