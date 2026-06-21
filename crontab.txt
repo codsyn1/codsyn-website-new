@@ -1,0 +1,23 @@
+# cPanel Cron Job Setup for Daily Sitemap Generation
+# 
+# To set up in cPanel:
+# 1. Go to cPanel > Cron Jobs
+# 2. Add a new cron job with these settings:
+# 
+# Common Settings: Once a day (or custom: 0 2 * * *)
+# Minute: 0
+# Hour: 2
+# Day: *
+# Month: *
+# Weekday: *
+# Command: /usr/local/bin/npm run sitemap:cron
+# 
+# IMPORTANT: Update the path to your project directory
+# Full command should be:
+# cd /home/yourusername/public_html/codsyn-website && /usr/local/bin/npm run sitemap:cron
+#
+# Replace 'yourusername' with your actual cPanel username
+# Replace 'codsyn-website' with your actual project folder name if different
+
+# Alternative cPanel command (if npm path is different):
+# cd /home/yourusername/public_html/codsyn-website && /usr/bin/node scripts/daily-sitemap-cron.js
