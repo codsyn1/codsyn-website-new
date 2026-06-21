@@ -7,7 +7,7 @@ import { blogService } from '@/lib/blogService';
 import '@/styles/scroll-animations.css';
 
 interface Blog {
-  id: string;
+  id?: string;
   title: string;
   description?: string;
   content: string;
