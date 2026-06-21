@@ -30,6 +30,7 @@ export interface BlogData {
   tags: string[];
   status: 'draft' | 'published' | 'scheduled';
   featuredImage?: string;
+  featured?: boolean;
   createdAt: any;
   updatedAt: any;
   publishedAt?: any;
