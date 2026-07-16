@@ -218,7 +218,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative py-16 bg-purple-50/80 dark:bg-purple-950/20 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-2xl" style={{ scrollMarginTop: '80px' }}>
+    <section id="projects" className="relative py-12 bg-purple-50/80 dark:bg-purple-950/20 text-gray-900 dark:text-white overflow-hidden mx-4 sm:mx-6 lg:mx-8 rounded-2xl" style={{ scrollMarginTop: '80px' }}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -228,7 +228,7 @@ export default function Projects() {
               Our Projects
             </span>
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-inter font-bold leading-tight mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-inter font-bold leading-tight mb-6">
             Recent
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 to-purple-600">
               {" "}Work

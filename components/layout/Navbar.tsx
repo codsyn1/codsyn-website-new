@@ -9,7 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'services', 'crm-highlight', 'projects', 'team', 'testimonials', 'contact'];
+      const sections = ['about', 'services', 'erp', 'projects', 'team', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 80; // Add navbar height offset
 
       let maxOverlap = 0;
@@ -104,12 +104,12 @@ export default function Navbar() {
                     </a>
                   </li>
                   <li>
-                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${activeSection === 'crm-highlight'
+                    <a className={`focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 px-3 text-sm font-medium relative group transition-all duration-200 ${activeSection === 'erp'
                       ? 'text-purple-600 dark:text-purple-400'
                       : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
-                      }`} style={{ fontFamily: 'var(--font-sans)', fontWeight: 500 }} href="/#crm-highlight">
+                      }`} style={{ fontFamily: 'var(--font-sans)', fontWeight: 500 }} href="/#erp">
                       <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                      CRM Highlight
+                      ERP
                     </a>
                   </li>
                   <li>
@@ -253,16 +253,16 @@ export default function Navbar() {
                 </li>
                 <li>
                   <a
-                    href="/#crm-highlight"
+                    href="/#erp"
                     onClick={() => setIsSidebarOpen(false)}
-                    className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${activeSection === 'crm-highlight'
+                    className={`block w-full text-left px-4 py-3 text-sm font-medium relative group transition-all duration-200 ${activeSection === 'erp'
                       ? 'text-purple-600 dark:text-purple-400'
                       : 'text-gray-700 dark:text-white hover:text-purple-600 dark:hover:text-purple-400'
                       }`}
                     style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontWeight: 500 }}
                   >
                     <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-600 dark:bg-purple-400 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                    CRM Highlight
+                    ERP
                   </a>
                 </li>
                 <li>

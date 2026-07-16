@@ -63,7 +63,7 @@ export default function Team() {
               Meet Our Team
             </span>
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-inter font-bold leading-tight mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-inter font-bold leading-tight mb-6">
             The Minds Behind
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 to-purple-600">
               {" "}Our Success
