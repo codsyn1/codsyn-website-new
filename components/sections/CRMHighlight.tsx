@@ -68,13 +68,13 @@ export default function CRMHighlight() {
               </li>
             </ul>
 
-            {/* CTA Button */}
+            {/* CTA Button & Partnership Badges */}
             <div className="pt-6">
               <a
                 href="https://c360.codsyn.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-purple-900 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-purple-900 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform mb-8"
               >
                 Explore C360
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -83,20 +83,50 @@ export default function CRMHighlight() {
                   <line x1="10" y1="14" x2="21" y2="3"></line>
                 </svg>
               </a>
+
             </div>
           </div>
 
           {/* Right Column - ERP Dashboard Image */}
-          <div className="relative">
+          <div className="relative flex flex-col">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700">
               <Image
-                src="/erp.png"
+                src="/erp.jpeg"
                 alt="C360 ERP Dashboard"
                 width={800}
                 height={600}
                 className="w-full h-auto"
                 priority
               />
+            </div>
+
+            {/* Partnership Badges */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-8 sm:gap-16 justify-center">
+              {/* Built By Codsyn */}
+              <div className="group flex items-center gap-4">
+                <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-600/10 dark:from-purple-500/20 dark:to-purple-600/20 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-1">Powered By</p>
+                  <p className="text-xl font-bold text-gray-900 dark:text-white leading-none">Codsyn</p>
+                </div>
+              </div>
+
+              {/* Marketed By Digikeds */}
+              <div className="group flex items-center gap-4">
+                <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/10 to-purple-600/10 dark:from-purple-500/20 dark:to-purple-600/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12h4l2-9 5 18 2-9h5"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-1">Managed By</p>
+                  <p className="text-xl font-bold text-gray-900 dark:text-white leading-none">Digikeds</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

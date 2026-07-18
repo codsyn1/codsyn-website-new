@@ -31,7 +31,7 @@ export default function CallifyProject() {
           }}></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 pt-16">
-          <Link href="/#projects" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-purple-200 hover:text-white mb-6 transition-colors">
+          <Link href="/#projects"  className="inline-flex items-center text-purple-200 hover:text-white mb-6 transition-colors">
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             Back to Projects
           </Link>
@@ -94,7 +94,7 @@ export default function CallifyProject() {
               </div>
               {/* Action Button */}
               <div>
-                <a href="http://callifytechnologiesllc.com/" target="_blank" rel="noopener noreferrer" className="inline-block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 text-center">
+                <a href="http://callifytechnologiesllc.com/"  className="inline-block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 text-center">
                   View Live Demo
                 </a>
               </div>

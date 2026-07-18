@@ -21,6 +21,16 @@ export default function Projects() {
       featured: true
     },
     {
+      title: 'Digikeds Website Redesign',
+      description: 'A modern, AI‑enhanced redesign of the Digikeds corporate site built with Next.js.',
+      image: '/images/digikeds-website-redesign.png',
+      tags: ['Next.js', 'AI', 'Chatbot', 'UI/UX'],
+      category: 'web',
+      link: 'https://digikeds.com',
+      slug: 'digikeds-website-redesign',
+      featured: false,
+    },
+    {
       title: 'Minibites - Restaurant & Food Delivery',
       description: 'Comprehensive restaurant management and food delivery application featuring real-time order tracking, seamless payment integration, and intuitive user experience built with Flutter and Firebase backend.',
       image: '/minibite-01.jpeg',

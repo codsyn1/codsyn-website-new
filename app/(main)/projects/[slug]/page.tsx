@@ -269,6 +269,56 @@ const projectData = {
       performance: '2.3s avg response time',
       satisfaction: '4.7/5 rating'
     }
+  },
+  'digikeds-website-redesign': {
+    title: 'Digikeds Website Redesign',
+    description: 'A company website we redesigned the UI and built in Next.js with AI chatbot attached.',
+    image: '/digikeds-website-redesign.png',
+    tags: ['Next.js', 'AI', 'Chatbot'],
+    category: 'web',
+    featured: false,
+    stats: { users: 'N/A', rating: '5', completion: '100%' },
+    hero: {
+      subtitle: 'AI-Enhanced Website',
+      overview: 'A modern redesign of a company website using Next.js, featuring an integrated AI chatbot for enhanced user interaction.'
+    },
+    gallery: [
+      '/digikeds-website-redesign.png'
+    ],
+    features: [
+      {
+        title: 'AI Chatbot',
+        description: 'Interactive AI-powered chatbot delivering personalized assistance.',
+        icon: '🤖'
+      },
+      {
+        title: 'Responsive UI',
+        description: 'Sleek, mobile-first design with smooth animations.',
+        icon: '💎'
+      }
+    ],
+    techStack: [
+      { name: 'Next.js', level: 90, color: 'bg-gray-800' },
+      { name: 'Tailwind CSS', level: 85, color: 'bg-cyan-500' },
+      { name: 'OpenAI API', level: 80, color: 'bg-purple-500' }
+    ],
+    challenges: [
+      'Integrating AI chatbot seamlessly',
+      'Ensuring design consistency across devices',
+      'Optimizing performance for dynamic content'
+    ],
+    solutions: [
+      'Modular component architecture',
+      'Serverless functions for AI calls',
+      'Advanced caching and lazy loading'
+    ],
+    results: {
+      completion: '100%',
+      timeline: '3 months',
+      team: '3 developers',
+      performance: 'Fast load times',
+      satisfaction: '5/5 rating'
+    }
   }
 };
 

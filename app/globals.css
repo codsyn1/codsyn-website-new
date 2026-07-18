@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Comprehensive cursor reset to ensure visibility */
 * {
   cursor: auto !important;
@@ -23,10 +25,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   cursor: auto !important;
 }
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-} */
+:root {
+  --background: #0f111a;
+  --foreground: hsl(0, 0%, 100%);
+}
 
 .dark {
     --foreground: hsl(0, 0%, 100%);

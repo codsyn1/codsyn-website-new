@@ -27,15 +27,15 @@ const team = [
   {
     name: "Muhammad Talha",
     role: "Business Development HOD",
-    image: "/talha.jpeg",
+    image: "/talha-v2.jpeg",
     bio: "Dynamic business development professional focused on identifying growth opportunities and building strategic partnerships. Expert in market analysis and driving business expansion initiatives.",
     expertise: ["Business Development", "Market Analysis", "Strategic Planning"],
     imageStyle: "object-cover object-center"
   },
   {
-    name: "Mohsin",
+    name: "Muhammad Umer",
     role: "Digital Marketing HOD",
-    image: "/mohsin.jpeg",
+    image: "/umer.jpeg",
     bio: "SEO specialist with expertise in search engine optimization, keyword research, and content strategy. Skilled in improving website rankings and driving organic traffic through effective SEO techniques.",
     expertise: ["SEO Optimization", "Keyword Research", "Content Strategy"],
     imageStyle: "object-cover"

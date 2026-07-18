@@ -1,22 +1,33 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function CallifyProject() {
+export default function DigikedsProject() {
   const [activeImage, setActiveImage] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const images = ['/images/callify.png'];
+  const images = [
+    '/images/digikeds-website-redesign.png'
+  ];
 
   const features = [
-    { title: 'Real‑time Call Management', description: 'Live dashboard for handling incoming calls with analytics.' },
-    { title: 'Analytics Dashboard', description: 'Insights into call volume, duration, and performance metrics.' },
-    { title: 'Responsive UI', description: 'Clean, modern design that works across devices.' }
+    { title: 'AI Chatbot', description: 'Interactive AI-powered chatbot delivering personalized assistance.' },
+    { title: 'Responsive UI', description: 'Sleek, mobile‑first design with smooth animations.' }
   ];
 
   const challenges = [
-    { title: 'Scalable Architecture', solution: 'Implemented a modular React component structure with Next.js SSR.' },
-    { title: 'Performance', solution: 'Optimized assets and used lazy loading for images and data.' }
+    { title: 'Integrating AI chatbot seamlessly', solution: 'Modular component architecture with serverless functions.' },
+    { title: 'Ensuring design consistency across devices', solution: 'Responsive UI design and thorough testing.' }
   ];
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    setIsVisible(true);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 mx-4 md:mx-8 lg:mx-12 my-6 md:my-8 rounded-2xl overflow-hidden">
@@ -35,11 +46,15 @@ export default function CallifyProject() {
           </Link>
           <div className="text-center">
             <div className="mb-4">
-              <span className="inline-block px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-purple-200">🌐 Web Project</span>
+              <span className="inline-block px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-purple-200">
+                🌐 Web Project
+              </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">Callify Platform</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+              Digikeds Website Redesign
+            </h1>
             <p className="text-lg text-purple-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-              A modern call‑management platform with real‑time analytics, sleek UI, and seamless integration.
+              A modern redesign of a company website using Next.js, featuring an integrated AI chatbot for enhanced user interaction.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
@@ -58,47 +73,57 @@ export default function CallifyProject() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Project Screenshots</h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left Side - Images */}
             <div className="space-y-4">
               <div className="relative rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800">
-                <img src={images[activeImage]} alt="Callify screenshot" className="w-full h-[500px] object-contain object-center" />
-                <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm font-medium">{activeImage + 1} / {images.length}</div>
+                <img src={images[activeImage]} alt="Digikeds screenshot" className="w-full h-[500px] object-contain object-center" />
+                <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  {activeImage + 1} / {images.length}
+                </div>
               </div>
             </div>
+            {/* Right Side - Project Details */}
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Callify Platform</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">A comprehensive solution for managing inbound calls, tracking performance, and providing analytics in real time.</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Digikeds Website Redesign</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  A modern redesign of a company website using Next.js, featuring an integrated AI chatbot for enhanced user interaction.
+                </p>
               </div>
+              {/* Key Features */}
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Key Features</h4>
                 <ul className="space-y-2">
-                  {features.map((f, i) => (
+                  {features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <span className="text-purple-600 mt-1">•</span>
-                      <span className="text-gray-600 dark:text-gray-300"><strong>{f.title}:</strong> {f.description}</span>
+                      <span className="text-gray-600 dark:text-gray-300"><strong>{feature.title}:</strong> {feature.description}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+              {/* Action Button */}
               <div>
-                <a href="http://callifytechnologiesllc.com/"  className="inline-block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 text-center">View Live Demo</a>
+                <a href="https://digikeds.com/"  className="inline-block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-800 text-white font-semibold rounded-full hover:from-purple-700 hover:to-purple-900 transition-all duration-300 text-center">
+                  View Live Demo
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technical Highlights */}
+      {/* Key Features Section */}
       <section className="py-16 bg-white dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Technical Highlights</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((f, idx) => (
-              <div key={idx} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{f.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{f.description}</p>
+            {features.map((feature, index) => (
+              <div key={index} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -112,10 +137,10 @@ export default function CallifyProject() {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Challenges & Solutions</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            {challenges.map((c, i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{c.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300"><span className="font-medium text-purple-600 dark:text-purple-400">Solution:</span> {c.solution}</p>
+            {challenges.map((item, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300"><span className="font-medium text-purple-600 dark:text-purple-400">Solution:</span> {item.solution}</p>
               </div>
             ))}
           </div>
